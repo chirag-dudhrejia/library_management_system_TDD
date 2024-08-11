@@ -5,6 +5,7 @@ from src.utils.utilities import book_exist
 from src.utils.utilities import add_book_to_library
 from src.utils.utilities import read_books_count
 from src.utils.utilities import write_books_count
+from src.utils.utilities import read_data
 
 
 DATA_FILE_PATH = "data/books.csv"
@@ -66,3 +67,21 @@ class Library:
             print("\nBook Successfully added.\n")
         else:
             print("\nFailed to add book, please crosscheck book details and try again.\n")
+
+
+    def show_available_books(self) -> int:
+        '''
+        Shows all the available books at the library.
+
+        Returns
+        -------
+                int
+                    returns the number of books available.
+        '''
+        books_df = read_data()
+
+        available_books_df = books_df[books_df["Available"] == "Yes"][["ISBN", "Title"]]
+
+        print(available_books_df.to_string())
+
+        return len(available_books_df)
