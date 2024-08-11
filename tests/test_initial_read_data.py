@@ -80,3 +80,16 @@ def test_invalid_isbn():
     result = validate_isbn(isbn=test_isbn)
 
     assert result == False
+
+
+def test_book_not_exist():
+    '''
+    GIVEN ISBN of the book
+    WHEN book_exist method is called
+    THEN it should return False
+    '''
+
+    test_isbn = "9684857263"
+    result = book_exist(isbn=test_isbn)
+
+    assert result == False
