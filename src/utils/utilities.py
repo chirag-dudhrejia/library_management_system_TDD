@@ -78,3 +78,28 @@ def validate_isbn(isbn: str) -> bool:
         return True
     
     return False
+
+
+def book_exist(isbn) -> bool:
+    '''
+    Checks for duplication of book if already exist.
+
+    Parameters
+    ----------
+    isbn: str
+            International Standard Book Number(ISBN) of book
+
+    Returns
+    -------
+    bool
+        True if book ISBN is present in data.
+    '''
+
+    book_df = read_data()
+
+    if book_df is not None:
+        book_df["ISBN"] = book_df["ISBN"].astype(str)
+        if book_df["ISBN"].str.contains(isbn).sum() > 0:
+            return True
+
+    return False

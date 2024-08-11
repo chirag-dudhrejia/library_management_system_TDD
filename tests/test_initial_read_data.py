@@ -3,6 +3,7 @@ from src.utils.utilities import read_data
 from src.customize_data import CustomLibraryData
 from src.utils.utilities import is_data_complete
 from src.utils.utilities import validate_isbn
+from src.utils.utilities import book_exist
 
 
 def test_initial_data_read():
