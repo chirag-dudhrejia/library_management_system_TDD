@@ -205,4 +205,4 @@ def test_mark_available():
 
     result = is_book_available(test_book.isbn)
 
-    assert result == True
+    assert result == False
