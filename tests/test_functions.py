@@ -159,3 +159,26 @@ def test_is_book_available():
     result = is_book_available(test_book.isbn)
 
     assert result == book_available
+
+
+def test_mark_unavailable():
+    '''
+    GIVEN isbn of the book
+    WHEN mark_unavailable methood is called
+    THEN it marks that particualar book unavailable.
+    '''
+
+    test_book = CustomLibraryData(
+                        isbn="9380169536405",
+                        title="War And Peace",
+                        author="LEO TOLSTOY",
+                        publication_year=1869
+                        )
+    
+    add_book_to_library(test_book)
+    
+    mark_unavailable(test_book.isbn)
+
+    result = is_book_available(test_book.isbn)
+
+    assert result == True
