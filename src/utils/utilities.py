@@ -120,7 +120,7 @@ def add_book_to_library(book_data_obj: CustomLibraryData) -> None:
         None
     '''
 
-    book_df = read_data()             # commit 5 this if else adds book to the file
+    book_df = read_data()
 
     if book_df is not None:
         book_df.loc[len(book_df)] = book_data_obj.get_data_list()
@@ -147,3 +147,20 @@ def read_books_count() -> int:
         with open(BOOKS_COUNT_FILE_PATH, "w") as book_count_file:
             book_count_file.write("0")
             return 0
+        
+
+def write_books_count(book_count: int) -> None:
+    '''
+    Writes books count into txt file.
+
+    Parameters
+    ----------
+    book_count
+            number of books in library.
+    
+    Returns
+    -------
+        None
+    '''
+    with open(BOOKS_COUNT_FILE_PATH, "w") as book_count_file:
+        book_count_file.write(str(book_count))

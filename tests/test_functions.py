@@ -5,6 +5,8 @@ from src.utils.utilities import is_data_complete
 from src.utils.utilities import validate_isbn
 from src.utils.utilities import book_exist
 from src.utils.utilities import read_books_count
+from src.utils.utilities import write_books_count
+from src.library_operations import Library
 
 
 def test_initial_data_read():
