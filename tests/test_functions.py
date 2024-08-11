@@ -106,3 +106,16 @@ def test_read_books_count():
 
     result = int(read_books_count())
     assert result >= 0
+
+
+def test_write_books_count():
+    '''
+    GIVEN books count
+    WHEN read_boks_count methood is called
+    THEN it should return an integer value greater than or equal to zero
+    '''
+
+    test_book_count = Library().books_count
+    write_books_count(test_book_count)
+    result = int(read_books_count())
+    assert result >= test_book_count
