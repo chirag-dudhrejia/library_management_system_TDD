@@ -8,6 +8,7 @@ from src.utils.utilities import read_books_count
 from src.utils.utilities import write_books_count
 from src.utils.utilities import is_book_available
 from src.utils.utilities import add_book_to_library
+from src.utils.utilities import mark_unavailable
 from src.library_operations import Library
 
 
@@ -181,4 +182,4 @@ def test_mark_unavailable():
 
     result = is_book_available(test_book.isbn)
 
-    assert result == True
+    assert result == False

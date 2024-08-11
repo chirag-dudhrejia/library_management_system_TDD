@@ -190,3 +190,23 @@ def is_book_available(isbn: str) -> bool:
         return True
 
     return False
+
+
+def mark_unavailable(isbn: str):
+    '''
+    Markes book unavailable when book is borrowed.
+
+    Parameters
+    ----------
+    isbn: str
+            International Standard Book Number(ISBN).
+    
+    Returns
+    -------
+        None
+    '''
+
+    book_df = read_data()
+
+    book_df[book_df["ISBN"] == int(isbn)]["Available"] = "No"
+    book_df.to_csv(DATA_FILE_PATH, index=False)
