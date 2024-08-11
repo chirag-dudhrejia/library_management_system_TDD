@@ -1,6 +1,7 @@
 import pandas as pd
 from src.utils.utilities import read_data
 from src.customize_data import CustomLibraryData
+from src.utils.utilities import is_data_complete
 
 
 def test_initial_data_read():
