@@ -1,5 +1,6 @@
 import pandas as pd
 from src.utils.utilities import read_data
+from src.customize_data import CustomLibraryData
 
 
 def test_initial_data_read():
@@ -13,3 +14,22 @@ def test_initial_data_read():
     result = read_data()
 
     assert result == test_expected
+
+
+def test_is_data_complete():
+    '''
+    GIVEN information of the book
+    WHEN add_book method is called
+    THEN it should return True
+    '''
+
+    test_book = CustomLibraryData(
+                        isbn="9780605064225",
+                        title="Harry Potter and the Order of the Phoenix",
+                        author="J.K. Rowling",
+                        publication_year=2003
+                        )
+    
+    result = is_data_complete(test_book)
+
+    assert result == True
