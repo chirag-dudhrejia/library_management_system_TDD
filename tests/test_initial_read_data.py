@@ -36,7 +36,7 @@ def test_is_data_complete():
     assert result == True
 
 
-def test_is_data_incomplete():              #commit 2 testing is_data_complete function
+def test_is_data_incomplete():
     '''
     GIVEN information of the book
     WHEN add_book method is called
@@ -53,3 +53,16 @@ def test_is_data_incomplete():              #commit 2 testing is_data_complete f
     result = is_data_complete(test_book)
 
     assert result == False
+
+
+def test_valid_isbn():
+    '''
+    GIVEN ISBN of the book
+    WHEN Validate_isbn methood is called
+    THEN it should return True
+    '''
+
+    test_isbn = "9780393978674"
+    result = validate_isbn(isbn=test_isbn)
+
+    assert result == True
