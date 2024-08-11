@@ -94,3 +94,14 @@ def test_book_not_exist():
     result = book_exist(isbn=test_isbn)
 
     assert result == False
+
+
+def test_read_books_count():
+    '''
+    GIVEN Nothing
+    WHEN read_boks_count methood is called
+    THEN it should return an integer value greater than or equal to zero
+    '''
+
+    result = int(read_books_count())
+    assert result >= 0
