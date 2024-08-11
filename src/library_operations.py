@@ -6,6 +6,8 @@ from src.utils.utilities import add_book_to_library
 from src.utils.utilities import read_books_count
 from src.utils.utilities import write_books_count
 from src.utils.utilities import read_data
+from src.utils.utilities import is_book_available
+from src.utils.utilities import mark_unavailable
 
 
 DATA_FILE_PATH = "data/books.csv"
@@ -14,7 +16,7 @@ class Library:
         
     books_count = read_books_count()
 
-    def add_book(self, isbn: str, title: str, author: str, publication_year: int) -> None:
+    def add_book(isbn: str, title: str, author: str, publication_year: int) -> None:
         '''
         Adds book to the library after performing required checks.
 
@@ -69,7 +71,7 @@ class Library:
             print("\nFailed to add book, please crosscheck book details and try again.\n")
 
 
-    def show_available_books(self) -> int:
+    def show_available_books() -> int:
         '''
         Shows all the available books at the library.
 
@@ -85,3 +87,56 @@ class Library:
         print(available_books_df.to_string())
 
         return len(available_books_df)
+    
+    def borrow_book(isbn: str):
+        '''
+        Borrows a book from the library.
+
+        Parameters
+        ----------
+                isbn: str
+                        International Standard Book Number(ISBN).
+        
+        Returns
+        -------
+            None
+        '''
+
+        valid_isbn = validate_isbn(isbn=isbn)
+
+        if validate_isbn:
+            book_available = is_book_available(isbn=isbn)
+
+        marked_unavailable = None
+        if book_available:
+            marked_unavailable = mark_unavailable(isbn=isbn)
+            print(marked_unavailable)
+
+        if marked_unavailable:
+            print("Book Borrowed Successfully.")
+
+
+    def return_book(isbn: str):
+        '''
+        returns a book to the library.
+
+        Parameters
+        ----------
+                isbn: str
+                        International Standard Book Number(ISBN).
+        
+        Returns
+        -------
+            None
+        '''
+
+        valid_isbn = validate_isbn(isbn=isbn)
+
+        if validate_isbn:
+            book_not_available = is_book_available(isbn=isbn)
+
+        if book_not_available:
+            marked_unavailable = mark_unavailable(isbn=isbn)
+
+        if marked_unavailable:
+            print("Book returned Successfully.")
