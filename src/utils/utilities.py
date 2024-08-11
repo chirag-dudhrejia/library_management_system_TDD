@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 from src.customize_data import CustomLibraryData
 
 DATA_FILE_PATH = "data/books.csv"
@@ -50,3 +51,30 @@ def is_data_complete(book: CustomLibraryData) -> bool:
         return False
     else:
         return True
+    
+
+def validate_isbn(isbn: str) -> bool:
+    '''
+    Validates that the ISBN is of right size and in all digits format.
+
+    Perameter
+    ---------
+    isbn: str
+            International Standerd Book Number(ISBN) of a book.
+
+    Returns
+    -------
+    bool
+        True if isbn is in correct format.
+    '''
+
+    old_pattern = r"^\d{10}$"
+    new_pattern = r"^\d{13}$"
+
+    old_pattern_match = re.match(old_pattern, isbn)
+    new_pattern_match = re.match(new_pattern, isbn)
+
+    if old_pattern_match or new_pattern_match:
+        return True
+    
+    return False
