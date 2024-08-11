@@ -103,3 +103,27 @@ def book_exist(isbn) -> bool:
             return True
 
     return False
+
+
+def add_book_to_library(book_data_obj: CustomLibraryData) -> None:
+    '''
+    Adds new book information into the books data file.
+
+    Parameters
+    ----------
+    book_data_obj
+                Information of book stored as object.
+    
+    Returns
+    -------
+        None
+    '''
+
+    book_df = read_data()             # commit 5 this if else adds book to the file
+
+    if book_df is not None:
+        book_df.loc[len(book_df)] = book_data_obj.get_data_list()
+        book_df.to_csv(DATA_FILE_PATH, index=False)
+    else:
+        new_book_df = book_data_obj.get_dataframe()
+        new_book_df.to_csv(DATA_FILE_PATH, index=False)
