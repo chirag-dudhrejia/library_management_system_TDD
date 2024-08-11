@@ -164,3 +164,29 @@ def write_books_count(book_count: int) -> None:
     '''
     with open(BOOKS_COUNT_FILE_PATH, "w") as book_count_file:
         book_count_file.write(str(book_count))
+
+
+def is_book_available(isbn: str) -> bool:
+    '''
+    Searches for a book if available at library.
+
+    Parameters
+    ----------
+    isbn: str
+            International Standard Book Number(ISBN).
+    
+    Returns
+    -------
+        bool
+            returns True if book is available at libraty.
+    '''
+
+    books_df = read_data()
+
+    all_available_books = books_df[books_df["Available"] == "Yes"]
+    searched_book_avaibility = len(all_available_books[books_df["ISBN"] == int(isbn)])
+
+    if searched_book_avaibility == 0:
+        return True
+
+    return False

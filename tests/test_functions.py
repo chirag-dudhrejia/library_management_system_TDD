@@ -6,6 +6,8 @@ from src.utils.utilities import validate_isbn
 from src.utils.utilities import book_exist
 from src.utils.utilities import read_books_count
 from src.utils.utilities import write_books_count
+from src.utils.utilities import is_book_available
+from src.utils.utilities import add_book_to_library
 from src.library_operations import Library
 
 
@@ -151,7 +153,7 @@ def test_is_book_available():
                         publication_year=2008
                         )
 
-    book_available = True
+    book_available = False
     add_book_to_library(test_book)
 
     result = is_book_available(test_book.isbn)
