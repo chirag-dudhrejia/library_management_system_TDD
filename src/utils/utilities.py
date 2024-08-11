@@ -3,6 +3,7 @@ import re
 from src.customize_data import CustomLibraryData
 
 DATA_FILE_PATH = "data/books.csv"
+BOOKS_COUNT_FILE_PATH = "data/books_count.txt"
 
 
 def read_data() -> pd.DataFrame:
@@ -127,3 +128,22 @@ def add_book_to_library(book_data_obj: CustomLibraryData) -> None:
     else:
         new_book_df = book_data_obj.get_dataframe()
         new_book_df.to_csv(DATA_FILE_PATH, index=False)
+
+
+def read_books_count() -> int:
+    '''
+    Reads count of books from txt file.
+
+    Returns
+    -------
+        int
+            count of books read from the txt file.
+    '''
+    try:
+        with open(BOOKS_COUNT_FILE_PATH, "r") as book_count_file:
+            book_count = book_count_file.read()
+            return int(book_count)
+    except FileNotFoundError as file_not_found_error:
+        with open(BOOKS_COUNT_FILE_PATH, "w") as book_count_file:
+            book_count_file.write("0")
+            return 0

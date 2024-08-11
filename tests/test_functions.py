@@ -4,6 +4,7 @@ from src.customize_data import CustomLibraryData
 from src.utils.utilities import is_data_complete
 from src.utils.utilities import validate_isbn
 from src.utils.utilities import book_exist
+from src.utils.utilities import read_books_count
 
 
 def test_initial_data_read():
