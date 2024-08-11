@@ -1,0 +1,23 @@
+Library_management _system
+	|---data
+	|     |---books.csv
+	|     |---books_count.txt
+	|
+	|---src
+	|     |---library_operations.py
+	|     |---main.py
+	|     |---customize_data.py
+	|     |---utils
+	|	   |---utilities.py
+	|
+	|---tests
+	|     |---test_functions.py
+	|     |---conftest.py
+	|     |---pytest.ini
+	|
+	|---requirements.txt
+	|---tests_to_implement.txt
+	|---README.md
+	|---setup.py
+	|---.gitignore
+    |---project_structure.txt
