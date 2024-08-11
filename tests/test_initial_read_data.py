@@ -67,3 +67,16 @@ def test_valid_isbn():
     result = validate_isbn(isbn=test_isbn)
 
     assert result == True
+
+
+def test_invalid_isbn():
+    '''
+    GIVEN ISBN of the book
+    WHEN Validate_isbn methood is called
+    THEN it should return False
+    '''
+
+    test_isbn = "9486473"
+    result = validate_isbn(isbn=test_isbn)
+
+    assert result == False
