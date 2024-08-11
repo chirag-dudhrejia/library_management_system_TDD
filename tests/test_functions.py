@@ -121,3 +121,17 @@ def test_write_books_count():
     write_books_count(test_book_count)
     result = int(read_books_count())
     assert result >= test_book_count
+
+
+def test_show_available_books():
+    '''
+    GIVEN Nothing
+    WHEN show_available_books methood is called
+    THEN it should return all the books available at library.
+    '''
+
+    test_books_count = read_books_count() + 1
+
+    result = Library().show_available_books()
+
+    assert result == test_books_count
