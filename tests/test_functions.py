@@ -135,3 +135,25 @@ def test_show_available_books():
     result = Library().show_available_books()
 
     assert result == test_books_count
+
+
+def test_is_book_available():
+    '''
+    GIVEN isbn of the book
+    WHEN is_book_available methood is called
+    THEN it should return True.
+    '''
+
+    test_book = CustomLibraryData(
+                        isbn="9780199536405",
+                        title="The Great Gatsby",
+                        author="F SCOTT FITZGERALD",
+                        publication_year=2008
+                        )
+
+    book_available = True
+    add_book_to_library(test_book)
+
+    result = is_book_available(test_book.isbn)
+
+    assert result == book_available
