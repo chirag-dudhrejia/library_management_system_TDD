@@ -183,3 +183,26 @@ def test_mark_unavailable():
     result = is_book_available(test_book.isbn)
 
     assert result == False
+
+
+def test_mark_available():
+    '''
+    GIVEN isbn of the book
+    WHEN mark_available methood is called
+    THEN it marks that particualar book available.
+    '''
+
+    test_book = CustomLibraryData(
+                        isbn="9350169436405",
+                        title="Great Expectations",
+                        author="CHARLES DICKENS",
+                        publication_year=1861
+                        )
+    
+    add_book_to_library(test_book)
+    
+    mark_unavailable(test_book.isbn)
+
+    result = is_book_available(test_book.isbn)
+
+    assert result == True
