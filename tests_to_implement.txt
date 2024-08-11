@@ -1,0 +1,25 @@
+Test Cases to implement in 'Library Management System'.
+
+Case -> Check any books available when first write program(should return 0 books).
+Case -> Check ISBN format.
+Case -> Check if book count is being stored correctly.
+
+1) Add Book:
+	Case1) Do not add record having Incomplete/Missing data.
+	Case2) Do not add duplicate record.
+	Case3) Check if record is added successfully or not.
+
+2) Borrow Book:
+	Case1) Check if information is incomplete or Incorrect Information.
+	Case2) Check if book does not exists in our data.
+	Case3) Check if book is available.
+	Case4) Check if borrowed book is marked unavailable or not.
+
+3) Return Book:
+	Case1) Check if information is incomplete or Incorrect information.
+	Case2) Check if book does not exist in our data.
+	Case3) Check if user enter book which is not borrowed.
+	Case4) Check if returned book is marked available or not.
+
+4) View Available Books:
+	Case1) Is it showing all the books available or not.
