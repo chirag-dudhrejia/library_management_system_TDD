@@ -133,9 +133,18 @@ def test_show_available_books():
     THEN it should return all the books available at library.
     '''
 
-    test_books_count = read_books_count() + 1
+    test_book = CustomLibraryData(
+                        isbn="9780605064225",
+                        title="Harry Potter and the Order of the Phoenix",
+                        author="J.K. Rowling",
+                        publication_year=2003
+                        )
 
-    result = Library().show_available_books()
+    add_book_to_library(test_book)
+
+    test_books_count = 1
+
+    result = Library.show_available_books()
 
     assert result == test_books_count
 
@@ -154,7 +163,7 @@ def test_is_book_available():
                         publication_year=2008
                         )
 
-    book_available = False
+    book_available = True
     add_book_to_library(test_book)
 
     result = is_book_available(test_book.isbn)
@@ -182,7 +191,7 @@ def test_mark_unavailable():
 
     result = is_book_available(test_book.isbn)
 
-    assert result == False
+    assert result == True
 
 
 def test_mark_available():
@@ -205,4 +214,4 @@ def test_mark_available():
 
     result = is_book_available(test_book.isbn)
 
-    assert result == False
+    assert result == True

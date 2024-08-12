@@ -186,7 +186,7 @@ def is_book_available(isbn: str) -> bool:
     all_available_books = books_df[books_df["Available"] == "Yes"]
     searched_book_avaibility = len(all_available_books[books_df["ISBN"] == int(isbn)])
 
-    if searched_book_avaibility == 0:
+    if searched_book_avaibility == 1:
         return True
 
     return False
